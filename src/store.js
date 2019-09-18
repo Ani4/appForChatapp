@@ -2,9 +2,9 @@ import { OrderedMap } from 'immutable'
 import _ from 'lodash'
 
 const users = OrderedMap({
-    '1': { _id: '1', name: "Toan Nguyen", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@toan.png' },
-    '2': { _id: '2', name: "Alexander Gov", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@alexander.png' },
-    '3': { _id: '3', name: "Kevin Smith", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@kevin.png' },
+    '1': { _id: '1', name: "Aniket Kumar", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@toan.png' },
+    '2': { _id: '2', name: "jagdish Chandra", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@alexander.png' },
+    '3': { _id: '3', name: "Ashish Anurag", created: new Date(), avatar: 'https://api.adorable.io/avatars/100/abott@kevin.png' },
 })
 
 export default class Store {
