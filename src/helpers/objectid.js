@@ -85,7 +85,7 @@ for (var i = 0; i < 256; i++) {
  * @method
  * @return {string} return the 24 byte hex string representation.
  */
-ObjectID.prototype.toHexString = function () {
+ObjectID.prototype.toHexString = function() {
     if (ObjectID.cacheHexString && this.__id) return this.__id;
 
     var hexString = '';
@@ -118,7 +118,7 @@ ObjectID.prototype.toHexString = function () {
  * @return {number} returns next index value.
  * @ignore
  */
-ObjectID.prototype.get_inc = function () {
+ObjectID.prototype.get_inc = function() {
     return (ObjectID.index = (ObjectID.index + 1) % 0xffffff);
 };
 
@@ -129,7 +129,7 @@ ObjectID.prototype.get_inc = function () {
  * @return {number} returns next index value.
  * @ignore
  */
-ObjectID.prototype.getInc = function () {
+ObjectID.prototype.getInc = function() {
     return this.get_inc();
 };
 
@@ -140,7 +140,7 @@ ObjectID.prototype.getInc = function () {
  * @param {number} [time] optional parameter allowing to pass in a second based timestamp.
  * @return {Buffer} return the 12 byte id buffer string.
  */
-ObjectID.prototype.generate = function (time) {
+ObjectID.prototype.generate = function(time) {
     if ('number' !== typeof time) {
         time = ~~(Date.now() / 1000);
     }
@@ -180,7 +180,7 @@ ObjectID.prototype.generate = function (time) {
  * @return {String} return the 24 byte hex string representation.
  * @ignore
  */
-ObjectID.prototype.toString = function (format) {
+ObjectID.prototype.toString = function(format) {
     // Is the id a buffer then use the buffer toString method to return the format
     if (this.id && this.id.copy) {
         return this.id.toString(typeof format === 'string' ? format : 'hex');
@@ -204,7 +204,7 @@ ObjectID.prototype.inspect = ObjectID.prototype.toString;
  * @return {String} return the 24 byte hex string representation.
  * @ignore
  */
-ObjectID.prototype.toJSON = function () {
+ObjectID.prototype.toJSON = function() {
     return this.toHexString();
 };
 
@@ -244,7 +244,7 @@ ObjectID.prototype.equals = function equals(otherId) {
  * @method
  * @return {date} the generation date
  */
-ObjectID.prototype.getTimestamp = function () {
+ObjectID.prototype.getTimestamp = function() {
     var timestamp = new Date();
     var time = this.id[3] | (this.id[2] << 8) | (this.id[1] << 16) | (this.id[0] << 24);
     timestamp.setTime(Math.floor(time) * 1000);
@@ -289,7 +289,7 @@ while (i < 10) decodeLookup[0x30 + i] = i++;
 while (i < 16) decodeLookup[0x41 - 10 + i] = decodeLookup[0x61 - 10 + i] = i++;
 
 var _Buffer = Buffer;
-var convertToHex = function (bytes) {
+var convertToHex = function(bytes) {
     return bytes.toString('hex');
 };
 
@@ -361,10 +361,10 @@ ObjectID.isValid = function isValid(id) {
  */
 Object.defineProperty(ObjectID.prototype, 'generationTime', {
     enumerable: true,
-    get: function () {
+    get: function() {
         return this.id[3] | (this.id[2] << 8) | (this.id[1] << 16) | (this.id[0] << 24);
     },
-    set: function (value) {
+    set: function(value) {
         // Encode time into first 4 bytes
         this.id[3] = value & 0xff;
         this.id[2] = (value >> 8) & 0xff;
